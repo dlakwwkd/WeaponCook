@@ -38,6 +38,7 @@ public:
     void SetDir(Direction dir){ m_UnitInfo.m_Direction = dir; }
     void PushWeapon(Weapon* weapon);
     void ChangeWeapon();
+    void UpgleWeapon();
 
     void AI();
     void Move();

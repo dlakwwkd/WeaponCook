@@ -50,5 +50,17 @@
 #define PATH_IMAGE_LASIER_A             "Image/Object/YellowSquare.png"
 #define PATH_IMAGE_LASIER_B             "Image/Object/ball.png"
 
+// sound
+#define PATH_SOUND_MISSILE_A            "Sound/BASIC.wav"
+#define PATH_SOUND_MISSILE_B            "Sound/BUBBLE.wav"
+#define PATH_SOUND_LASIER_A             "Sound/_3way.wav"
+#define PATH_SOUND_LASIER_B             "Sound/SPLASH.wav"
+#define PATH_SOUND_ATTACK_A             "Sound/VERTICAL.wav"
+#define PATH_SOUND_ATTACK_B             "Sound/FRAME.wav"
+#define PATH_SOUND_BOOM_A               "Sound/GLIDER.wav"
+#define PATH_SOUND_BOOM_B               "Sound/GIANT.wav"
+#define PATH_SOUND_SHIP                 "Sound/ANGEL.wav"
+#define PATH_SOUND_UPGRADE              "Sound/STUN.wav"
+#define PATH_SOUND_BGM                  "Sound/DrunkenChicks.mp3"
 
 #endif

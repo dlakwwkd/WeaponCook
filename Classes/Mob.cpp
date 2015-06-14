@@ -29,7 +29,7 @@ void Mob::Destroy()
     {
         return;
     }
-//     Ingredient::Type type;
+    //     Ingredient::Type type;
 //     int n = rand() % 12;
 //     if (n < 7)
 //     {

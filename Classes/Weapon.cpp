@@ -1,5 +1,6 @@
 ﻿#include "Weapon.h"
 #include "GameManager.h"
+#include "SimpleAudioEngine.h"
 
 USING_NS_CC;
 
@@ -62,6 +63,7 @@ void Weapon::Attack(const Vec2& unitPos, Unit::Direction dir)
     }
     GET_UI_LAYER->Shoot();
     UpdateLabel();
+    CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(m_WeaponInfo.m_Sound.c_str());
 }
 
 void Weapon::ShootMissile(const Vec2& unitPos, Unit::Direction dir)

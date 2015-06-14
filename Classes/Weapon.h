@@ -17,6 +17,7 @@ public:
     {
         DefInfo     m_DefInfo;
         std::string m_IconImage;
+        std::string m_Sound;
         AttackType  m_AttackType = AT_MISSILE;
         int         m_Damage;
         int         m_Speed;
@@ -36,6 +37,11 @@ public:
     
     void                SetIcon(const std::string& image);
     cocos2d::Sprite*    GetIcon() const { return m_Icon; }
+
+    void AddCount(int count) { m_WeaponInfo.m_Count += count; }
+    void AddDamage(int damage) { m_WeaponInfo.m_Damage += damage; }
+    void AddSpeed(int speed) { m_WeaponInfo.m_Speed += speed; }
+    void AddSize(float size) { m_WeaponInfo.m_Size += size; }
 
     void SetLabel();
     void UpdateLabel();

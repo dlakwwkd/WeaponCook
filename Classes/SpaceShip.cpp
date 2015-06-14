@@ -1,5 +1,6 @@
 ﻿#include "SpaceShip.h"
 #include "GameManager.h"
+#include "SimpleAudioEngine.h"
 
 USING_NS_CC;
 
@@ -27,6 +28,7 @@ void SpaceShip::Damaged(int damage)
         return;
     }
     Object::Damaged(damage);
+    CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(PATH_SOUND_ATTACK_A);
     /*
         todo : 피격 이펙트
     */
@@ -39,6 +41,7 @@ void SpaceShip::Destroy()
         return;
     }
     Object::Destroy();
+    CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(PATH_SOUND_BOOM_B);
 }
 
 void SpaceShip::CreateUnit()

@@ -7,6 +7,7 @@
 #include "SpaceShip.h"
 #include "Ingredient.h"
 #include "Laser.h"
+#include "SimpleAudioEngine.h"
 
 USING_NS_CC;
 
@@ -28,7 +29,7 @@ bool ObjectLayer::init()
     _eventDispatcher->addEventListenerWithSceneGraphPriority(contactListener, this);
 
     this->schedule(schedule_selector(ObjectLayer::Tick));
-    this->schedule(schedule_selector(ObjectLayer::Tick2), 1.0f);
+    this->schedule(schedule_selector(ObjectLayer::Tick2), 2.0f);
 	return true;
 }
 
@@ -44,6 +45,13 @@ void ObjectLayer::Tick2(float dt)
         unit->AI();
     }
     Trigger::getInstance()->TurnChange();
+    if (Trigger::getInstance()->GetCount() % 5 == 0)
+    {
+        CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(PATH_SOUND_UPGRADE);
+        for (int i = 0; i < 5; ++i)
+            m_Hero->UpgleWeapon();
+    }
+    m_Hero->UpgleWeapon();
 }
 
 void ObjectLayer::onKeyPressed(EventKeyboard::KeyCode keyCode, Event* event)
@@ -99,8 +107,8 @@ void ObjectLayer::CreateOven(const Vec2& pos, Player* owner)
 {
     Unit::DefInfo info;
     info.m_ImageName = PATH_IMAGE_CASTLE;
-    info.m_CurHp = info.m_MaxHp = 200;
-    info.m_Damage = 50;
+    info.m_CurHp = info.m_MaxHp = 300;
+    info.m_Damage = 1000;
     info.m_MoveSpeed = 0.0f;
 
     auto oven = Oven::create();
@@ -145,9 +153,10 @@ void ObjectLayer::CreateUnit(const Vec2& pos, Player* owner, const Unit::UnitInf
 
 void ObjectLayer::CreateSpaceShip(const cocos2d::Vec2& pos, const Unit::UnitInfo& info)
 {
+    static int n = 0;
     Unit::DefInfo defInfo;
     defInfo.m_ImageName = PATH_IMAGE_SPACE_SHIP2;
-    defInfo.m_CurHp = defInfo.m_MaxHp = 100;
+    defInfo.m_CurHp = defInfo.m_MaxHp = 100 + 2*n++;
     defInfo.m_Damage = 0;
     defInfo.m_MoveSpeed = 0.0f;
 
@@ -215,13 +224,14 @@ void ObjectLayer::CreateWeaponDefault(Unit* unit)
     Weapon::DefInfo definfo;
     definfo.m_ImageName = PATH_IMAGE_MISSILE_A;
     definfo.m_CurHp = definfo.m_MaxHp = 0;
-    definfo.m_Damage = 20;
+    definfo.m_Damage = 25;
     definfo.m_MoveSpeed = 400.0f;
 
     Weapon::WeaponInfo weaponInfo;
     weaponInfo.m_IconImage = PATH_IMAGE_ICON1;
+    weaponInfo.m_Sound = PATH_SOUND_MISSILE_A;
     weaponInfo.m_AttackType = Weapon::AT_MISSILE;
-    weaponInfo.m_Count = 810;
+    weaponInfo.m_Count = 800;
     weaponInfo.m_Size = 1.0f;
     weaponInfo.m_Damage = definfo.m_Damage;
     weaponInfo.m_Speed = definfo.m_MoveSpeed;
@@ -233,7 +243,8 @@ void ObjectLayer::CreateWeaponDefault(Unit* unit)
     weaponInfo.m_DefInfo.m_ImageName = PATH_IMAGE_LASIER_A;
     weaponInfo.m_DefInfo.m_CurHp = weaponInfo.m_DefInfo.m_MaxHp = 50;
     weaponInfo.m_AttackType = Weapon::AT_LASIER;
-    weaponInfo.m_Count = 90;
+    weaponInfo.m_Sound = PATH_SOUND_LASIER_A;
+    weaponInfo.m_Count = 40;
     weaponInfo.m_Size = 0.3f;
     weaponInfo.m_Damage = 15;
     weaponInfo.m_Speed = 500.0f;
@@ -244,21 +255,23 @@ void ObjectLayer::CreateWeaponDefault(Unit* unit)
     weaponInfo.m_DefInfo.m_ImageName = PATH_IMAGE_LASIER_B;
     weaponInfo.m_DefInfo.m_CurHp = weaponInfo.m_DefInfo.m_MaxHp = 30;
     weaponInfo.m_AttackType = Weapon::AT_LASIER;
-    weaponInfo.m_Count = 270;
+    weaponInfo.m_Sound = PATH_SOUND_LASIER_B;
+    weaponInfo.m_Count = 240;
     weaponInfo.m_Size = 1.5f;
-    weaponInfo.m_Damage = 30;
-    weaponInfo.m_Speed = 150.0f;
+    weaponInfo.m_Damage = 35;
+    weaponInfo.m_Speed = 200.0f;
 
     CreateWeapon(weaponInfo, unit->GetOwner(), unit);
 
     weaponInfo.m_IconImage = PATH_IMAGE_ICON4;
     weaponInfo.m_DefInfo.m_ImageName = PATH_IMAGE_MISSILE_B;
-    weaponInfo.m_DefInfo.m_CurHp = weaponInfo.m_DefInfo.m_MaxHp = 30;
+    weaponInfo.m_DefInfo.m_CurHp = weaponInfo.m_DefInfo.m_MaxHp = 50;
     weaponInfo.m_AttackType = Weapon::AT_MISSILE;
-    weaponInfo.m_Count = 30;
-    weaponInfo.m_Size = 0.8f;
-    weaponInfo.m_Damage = 45;
-    weaponInfo.m_Speed = 350.0f;
+    weaponInfo.m_Sound = PATH_SOUND_MISSILE_B;
+    weaponInfo.m_Count = 80;
+    weaponInfo.m_Size = 0.5f;
+    weaponInfo.m_Damage = 65;
+    weaponInfo.m_Speed = 450.0f;
 
     CreateWeapon(weaponInfo, unit->GetOwner(), unit);
 }

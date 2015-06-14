@@ -1,6 +1,7 @@
 ﻿#include "Oven.h"
 #include "GameManager.h"
 #include "Trigger.h"
+#include "SimpleAudioEngine.h"
 
 USING_NS_CC;
 
@@ -30,9 +31,7 @@ void Oven::Damaged(int damage)
         return;
     }
     Object::Damaged(damage);
-    /*
-        todo : 피격 이펙트
-    */
+    CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(PATH_SOUND_ATTACK_A);
 }
 
 void Oven::Destroy()
@@ -42,9 +41,6 @@ void Oven::Destroy()
         return;
     }
     Object::Destroy();
-    /*
-        todo : 캐슬 폭파 모션 재생
-    */
     Trigger::getInstance()->GameOver(m_Owner);
 }
 

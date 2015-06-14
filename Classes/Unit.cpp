@@ -33,9 +33,6 @@ void Unit::Damaged(int damage)
         return;
     }
     Object::Damaged(damage);
-    /*
-        todo : 피격 이펙트
-    */
 }
 
 void Unit::Destroy()
@@ -45,9 +42,6 @@ void Unit::Destroy()
         return;
     }
     Object::Destroy();
-    /*
-        todo : 유닛 사망 모션 재생
-    */
     m_UnitInfo.m_State = US_DEATH;
     GET_OBJ_LAYER->DeleteUnit(this);
     GET_UI_LAYER->ShowIcon();
@@ -83,7 +77,7 @@ void Unit::Jump()
 {
     if (_physicsBody->getVelocity().y > 0.1f || _physicsBody->getVelocity().y < -0.1f)
         return;
-    _physicsBody->applyImpulse(Vec2(0, m_DefInfo.m_MoveSpeed));
+    _physicsBody->applyImpulse(Vec2(0, m_DefInfo.m_MoveSpeed*1.2f));
 }
 
 void Unit::Attack()
@@ -119,4 +113,14 @@ void Unit::ChangeWeapon()
     m_WeaponQueue.push(m_WeaponQueue.front());
     m_WeaponQueue.pop();
     GET_UI_LAYER->ShowIcon();
+}
+
+void Unit::UpgleWeapon()
+{
+    auto weapon = m_WeaponQueue.front();
+    weapon->AddCount(1);
+    weapon->AddDamage(5);
+    weapon->AddSize(0.02f);
+    weapon->AddSpeed(3);
+    weapon->UpdateLabel();
 }

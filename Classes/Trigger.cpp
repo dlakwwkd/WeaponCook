@@ -4,6 +4,7 @@
 #include "UILayer.h"
 #include "Unit.h"
 #include "GameOverScene.h"
+#include "SimpleAudioEngine.h"
 
 USING_NS_CC;
 
@@ -46,6 +47,8 @@ void Trigger::GameStart()
 
 void Trigger::GameOver(Player* losePlayer)
 {
+    CocosDenshion::SimpleAudioEngine::getInstance()->stopBackgroundMusic();
+    CocosDenshion::SimpleAudioEngine::getInstance()->stopAllEffects();
     Director::getInstance()->popScene();
 
     auto scene = GameOverScene::createScene();
@@ -82,9 +85,9 @@ void Trigger::TurnStartA()
 
     Unit::UnitInfo info;
     info.m_DefInfo.m_ImageName = PATH_IMAGE_UNIT_C;
-    info.m_DefInfo.m_CurHp = info.m_DefInfo.m_MaxHp = 50;
+    info.m_DefInfo.m_CurHp = info.m_DefInfo.m_MaxHp = 30 + m_WaveCount;
     info.m_DefInfo.m_Damage = 10;
-    info.m_DefInfo.m_MoveSpeed = 100.0f;
+    info.m_DefInfo.m_MoveSpeed = 80.0f + m_WaveCount*2;
     info.m_Direction = dir;
     info.m_State = Unit::US_STANDBY;
 

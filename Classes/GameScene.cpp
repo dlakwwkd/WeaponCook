@@ -5,6 +5,7 @@
 #include "Trigger.h"
 #include "Player.h"
 #include "TextDefine.h"
+#include "SimpleAudioEngine.h"
 
 USING_NS_CC;
 
@@ -34,6 +35,7 @@ bool GameScene::init()
     InitPlayers();
     InitDefInfoList();
     GET_GM->CallFuncAfter(this, &GameScene::InitGameState);
+    CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic(PATH_SOUND_BGM, true);
     return true;
 }
 

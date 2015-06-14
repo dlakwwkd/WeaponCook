@@ -21,17 +21,13 @@ bool MainScene::init()
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
-    auto label = Label::createWithSystemFont("== 메인 화면 ==", "Arial", 24);
-    label->setPosition(Vec2(origin.x + visibleSize.width/2, origin.y + visibleSize.height - label->getContentSize().height));
-    this->addChild(label, 1);
-
-    auto sprite = Sprite::create(PATH_IMAGE_MAIN_BG);
+    auto sprite = Sprite::create(PATH_IMAGE_MAP_BG);
     sprite->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
     sprite->setOpacity(100);
     this->addChild(sprite, 0);
 
 
-    auto label1 = Label::createWithSystemFont("게임 시작", "Arial", 24);
+    auto label1 = Label::createWithSystemFont("[ 게임 시작 ]", "Arial", 20);
     auto menuItem1 = MenuItemLabel::create(label1, CC_CALLBACK_1(MainScene::GameStart, this));
     auto menu = Menu::create(menuItem1, NULL);
     menu->alignItemsVertically();

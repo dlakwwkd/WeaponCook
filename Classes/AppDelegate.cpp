@@ -1,5 +1,6 @@
 #include "AppDelegate.h"
 #include "MainScene.h"
+#include "SimpleAudioEngine.h"
 
 USING_NS_CC;
 
@@ -9,6 +10,7 @@ AppDelegate::AppDelegate() {
 
 AppDelegate::~AppDelegate() 
 {
+    CocosDenshion::SimpleAudioEngine::end();
 }
 
 void AppDelegate::initGLContextAttrs()
