@@ -1,41 +1,203 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="win32">
+    <Filter Include="Base">
       <UniqueIdentifier>{84a8ebd7-7cf0-47f6-b75e-d441df67da40}</UniqueIdentifier>
     </Filter>
-    <Filter Include="resource">
+    <Filter Include="Base\resource">
       <UniqueIdentifier>{715254bc-d70b-4ec5-bf29-467dd3ace079}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src">
+    <Filter Include="Base\src">
       <UniqueIdentifier>{bb6c862e-70e9-49d9-81b7-3829a6f50471}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Base\win32">
+      <UniqueIdentifier>{741e78b0-e8d1-4c7f-9f52-4843ca542727}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main">
+      <UniqueIdentifier>{3c561186-a1bd-46b2-81a7-9533c2bb2756}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game">
+      <UniqueIdentifier>{14c988b9-05ac-4354-998e-bb30d8504327}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Trigger">
+      <UniqueIdentifier>{1110fbbe-334c-4a43-ac35-5919f02281a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Player">
+      <UniqueIdentifier>{f242d6e3-8756-4838-a9a8-ab59b37b7d9b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\PhysicsLayer">
+      <UniqueIdentifier>{a4f71a50-1025-4baa-a260-c211599b2271}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Object">
+      <UniqueIdentifier>{00ee7349-dcff-407b-ba97-3bac80d295a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\GameManager">
+      <UniqueIdentifier>{dfb340ab-5246-4052-b727-edb77cca0261}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Object\Unit">
+      <UniqueIdentifier>{3e8029f7-0d7f-4108-a105-ef9fe24fb2a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Object\Weapon">
+      <UniqueIdentifier>{6ceedb3c-406c-4e60-8ab3-89e1b0ac79bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Object\Ingredient">
+      <UniqueIdentifier>{cbf31d5f-a620-42a8-abeb-f478b385933c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Object\Structure">
+      <UniqueIdentifier>{c5d2b5cd-2c5d-4caf-8f68-a44274a9ba93}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Object\Missile">
+      <UniqueIdentifier>{b6c89e11-43b5-460d-bda3-d14be2162f5e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\Classes\AppDelegate.cpp">
+      <Filter>Base</Filter>
+    </ClCompile>
     <ClCompile Include="main.cpp">
-      <Filter>win32</Filter>
+      <Filter>Base\win32</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\AppDelegate.cpp">
-      <Filter>src</Filter>
+    <ClCompile Include="..\Classes\MainScene.cpp">
+      <Filter>Main</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\HelloWorldScene.cpp">
-      <Filter>src</Filter>
+    <ClCompile Include="..\Classes\GameManager.cpp">
+      <Filter>Game\GameManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Object.cpp">
+      <Filter>Game\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GameScene.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\PhysicsLayer.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\UILayer.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\MapLayer.cpp">
+      <Filter>Game\PhysicsLayer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ObjectLayer.cpp">
+      <Filter>Game\PhysicsLayer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Trigger.cpp">
+      <Filter>Game\Trigger</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Player.cpp">
+      <Filter>Game\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\InputManager.cpp">
+      <Filter>Game\GameManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Unit.cpp">
+      <Filter>Game\Object\Unit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Oven.cpp">
+      <Filter>Game\Object\Structure</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\SpaceShip.cpp">
+      <Filter>Game\Object\Structure</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Hero.cpp">
+      <Filter>Game\Object\Unit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Weapon.cpp">
+      <Filter>Game\Object\Weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Missile.cpp">
+      <Filter>Game\Object\Missile</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Ingredient.cpp">
+      <Filter>Game\Object\Ingredient</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Mob.cpp">
+      <Filter>Game\Object\Unit</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Laser.cpp">
+      <Filter>Game\Object\Missile</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\GameOverScene.cpp">
+      <Filter>Game</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\Classes\AppDelegate.h">
+      <Filter>Base</Filter>
+    </ClInclude>
     <ClInclude Include="main.h">
-      <Filter>win32</Filter>
+      <Filter>Base\win32</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\AppDelegate.h">
-      <Filter>src</Filter>
+    <ClInclude Include="..\Classes\MainScene.h">
+      <Filter>Main</Filter>
     </ClInclude>
-    <ClInclude Include="..\src\HelloWorldScene.h">
-      <Filter>src</Filter>
+    <ClInclude Include="..\Classes\GameManager.h">
+      <Filter>Game\GameManager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Object.h">
+      <Filter>Game\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GameScene.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\PhysicsLayer.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\UILayer.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\MapLayer.h">
+      <Filter>Game\PhysicsLayer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ObjectLayer.h">
+      <Filter>Game\PhysicsLayer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\TextDefine.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Trigger.h">
+      <Filter>Game\Trigger</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Player.h">
+      <Filter>Game\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\InputManager.h">
+      <Filter>Game\GameManager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Unit.h">
+      <Filter>Game\Object\Unit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Oven.h">
+      <Filter>Game\Object\Structure</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\SpaceShip.h">
+      <Filter>Game\Object\Structure</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Hero.h">
+      <Filter>Game\Object\Unit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Weapon.h">
+      <Filter>Game\Object\Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Missile.h">
+      <Filter>Game\Object\Missile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Ingredient.h">
+      <Filter>Game\Object\Ingredient</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Mob.h">
+      <Filter>Game\Object\Unit</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Laser.h">
+      <Filter>Game\Object\Missile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\GameOverScene.h">
+      <Filter>Game</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">
-      <Filter>resource</Filter>
+      <Filter>Base\resource</Filter>
     </ResourceCompile>
   </ItemGroup>
 </Project>

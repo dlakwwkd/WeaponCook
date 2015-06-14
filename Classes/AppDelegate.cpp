@@ -1,5 +1,5 @@
 #include "AppDelegate.h"
-#include "HelloWorldScene.h"
+#include "MainScene.h"
 
 USING_NS_CC;
 
@@ -23,13 +23,17 @@ bool AppDelegate::applicationDidFinishLaunching()
     auto glview = director->getOpenGLView();
     if(!glview)
     {
-        glview = GLViewImpl::create("My Game");
+        glview = GLViewImpl::create("WeaponCook");
         director->setOpenGLView(glview);
     }
-    director->setDisplayStats(true);
+    glview->setFrameSize(1440, 720);
+    //glview->setFrameSize(960, 480);
+    glview->setDesignResolutionSize(960, 480, ResolutionPolicy::FIXED_HEIGHT);
+
+    director->setDisplayStats(false);
     director->setAnimationInterval(1.0 / 60);
 
-    auto scene = HelloWorld::createScene();
+    auto scene = MainScene::createScene();
     director->runWithScene(scene);
     return true;
 }
