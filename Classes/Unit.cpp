@@ -118,9 +118,9 @@ void Unit::ChangeWeapon()
 void Unit::UpgleWeapon()
 {
     auto weapon = m_WeaponQueue.front();
-    weapon->AddCount(1);
+    weapon->AddCount(2);
     weapon->AddDamage(5);
-    weapon->AddSize(0.02f);
+    weapon->AddSize(0.01f);
     weapon->AddSpeed(3);
     weapon->UpdateLabel();
 }

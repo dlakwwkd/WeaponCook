@@ -15,7 +15,7 @@ bool Missile::init()
 void Missile::SetDef(const DefInfo& info)
 {
     Object::SetDef(info);
-    getPhysicsBody()->getFirstShape()->setMaterial(PhysicsMaterial(0, 0, 0));
+    getPhysicsBody()->getFirstShape()->setMaterial(PhysicsMaterial(1.0f, 0, 0));
     getPhysicsBody()->setCategoryBitmask(OBJ_MISSILE);
     getPhysicsBody()->setCollisionBitmask(OBJ_ALL - OBJ_MISSILE - OBJ_LASER);
     getPhysicsBody()->setContactTestBitmask(OBJ_ALL - OBJ_MISSILE - OBJ_LASER);

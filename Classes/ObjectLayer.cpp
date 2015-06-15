@@ -241,11 +241,11 @@ void ObjectLayer::CreateWeaponDefault(Unit* unit)
 
     weaponInfo.m_IconImage = PATH_IMAGE_ICON2;
     weaponInfo.m_DefInfo.m_ImageName = PATH_IMAGE_LASIER_A;
-    weaponInfo.m_DefInfo.m_CurHp = weaponInfo.m_DefInfo.m_MaxHp = 50;
+    weaponInfo.m_DefInfo.m_CurHp = weaponInfo.m_DefInfo.m_MaxHp = 30;
     weaponInfo.m_AttackType = Weapon::AT_LASIER;
     weaponInfo.m_Sound = PATH_SOUND_LASIER_A;
-    weaponInfo.m_Count = 40;
-    weaponInfo.m_Size = 0.3f;
+    weaponInfo.m_Count = 80;
+    weaponInfo.m_Size = 0.2f;
     weaponInfo.m_Damage = 15;
     weaponInfo.m_Speed = 500.0f;
 
@@ -253,25 +253,25 @@ void ObjectLayer::CreateWeaponDefault(Unit* unit)
 
     weaponInfo.m_IconImage = PATH_IMAGE_ICON3;
     weaponInfo.m_DefInfo.m_ImageName = PATH_IMAGE_LASIER_B;
-    weaponInfo.m_DefInfo.m_CurHp = weaponInfo.m_DefInfo.m_MaxHp = 30;
+    weaponInfo.m_DefInfo.m_CurHp = weaponInfo.m_DefInfo.m_MaxHp = 50;
     weaponInfo.m_AttackType = Weapon::AT_LASIER;
     weaponInfo.m_Sound = PATH_SOUND_LASIER_B;
     weaponInfo.m_Count = 240;
     weaponInfo.m_Size = 1.5f;
-    weaponInfo.m_Damage = 35;
+    weaponInfo.m_Damage = 45;
     weaponInfo.m_Speed = 200.0f;
 
     CreateWeapon(weaponInfo, unit->GetOwner(), unit);
 
     weaponInfo.m_IconImage = PATH_IMAGE_ICON4;
     weaponInfo.m_DefInfo.m_ImageName = PATH_IMAGE_MISSILE_B;
-    weaponInfo.m_DefInfo.m_CurHp = weaponInfo.m_DefInfo.m_MaxHp = 50;
+    weaponInfo.m_DefInfo.m_CurHp = weaponInfo.m_DefInfo.m_MaxHp = 100;
     weaponInfo.m_AttackType = Weapon::AT_MISSILE;
     weaponInfo.m_Sound = PATH_SOUND_MISSILE_B;
-    weaponInfo.m_Count = 80;
-    weaponInfo.m_Size = 0.5f;
-    weaponInfo.m_Damage = 65;
-    weaponInfo.m_Speed = 450.0f;
+    weaponInfo.m_Count = 40;
+    weaponInfo.m_Size = 0.3f;
+    weaponInfo.m_Damage = 80;
+    weaponInfo.m_Speed = 250.0f;
 
     CreateWeapon(weaponInfo, unit->GetOwner(), unit);
 }

@@ -28,8 +28,8 @@ bool AppDelegate::applicationDidFinishLaunching()
         glview = GLViewImpl::create("WeaponCook");
         director->setOpenGLView(glview);
     }
-    glview->setFrameSize(1440, 720);
-    //glview->setFrameSize(960, 480);
+    //glview->setFrameSize(1440, 720);
+    glview->setFrameSize(960, 480);
     glview->setDesignResolutionSize(960, 480, ResolutionPolicy::FIXED_HEIGHT);
 
     director->setDisplayStats(false);
